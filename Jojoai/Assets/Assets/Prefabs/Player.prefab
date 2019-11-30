@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3486827345606453834}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: moa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4317135656775493374}
   - component: {fileID: 5061410227502343920}
   - component: {fileID: 4159589302506700049}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,13 +197,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7115021051168341717}
   - component: {fileID: 7115021051168341713}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JojoGod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7115021051168341717
 Transform:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6806970425069811187
 Transform:
   m_ObjectHideFlags: 0

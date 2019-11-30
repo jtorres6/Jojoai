@@ -33,7 +33,7 @@ public class God : MonoBehaviour
         float dirX = _hftInput.GetAxis("Horizontal");
         _rb.velocity = new Vector3(dirX * SPEED * Time.deltaTime, 0f, 0f);
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("fire1"))
         {
             RaycastHit[] hits;
             hits = Physics.RaycastAll(_jojo.transform.position, Vector3.down, 500f);

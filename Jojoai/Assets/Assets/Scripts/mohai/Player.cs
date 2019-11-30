@@ -11,12 +11,15 @@ public enum MoveState {
 
 public class Player : MonoBehaviour
 {
+
+    public float score = 0f;
+
     // Child References:
     private GameObject _moa;
 
     // Physics Constants
-    public const float SPEED = 6.0f;
-    public const float JUMP_FORCE = 700f;
+    public float SPEED = 6.0f;
+    public float JUMP_FORCE = 700f;
 
     // Components
     private HFTInput _hftInput;
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
     private bool _falling = false;
 
     private bool Grounded() {
-        return Physics.Raycast(transform.position, -Vector3.up, _distToGround + 0.1f);
+        return Physics.Raycast(_moa.transform.position, -Vector3.up, _distToGround + 0.1f);
     }
 
     public bool Dead() {
