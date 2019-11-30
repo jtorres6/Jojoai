@@ -38,8 +38,5 @@ public class GameController : MonoBehaviour
         {
             players[i].transform.Find("moa").GetComponent<Player>().score += Time.deltaTime;
         }
-
-
-
     }
 }

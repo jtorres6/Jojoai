@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
 
         Renderer renderer = _moa.transform.GetChild(0).gameObject.GetComponent<Renderer>();
         renderer.material.SetColor("_BaseColor", _gamepad.color);
+        renderer.material.SetColor("_EmissionColor", _gamepad.color);
+
         _distToGround = _moa.GetComponent<CapsuleCollider>().bounds.extents.y;
     }
 
