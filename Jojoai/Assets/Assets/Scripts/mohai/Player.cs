@@ -11,6 +11,9 @@ public enum MoveState {
 
 public class Player : MonoBehaviour
 {
+    // Child References:
+    private GameObject _moa;
+
     // Physics Constants
     public const float SPEED = 6.0f;
     public const float JUMP_FORCE = 700f;
@@ -50,14 +53,16 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _moa = transform.Find("moa").gameObject;
+
         _hftInput = GetComponent<HFTInput>();
         _gamepad = GetComponent<HFTGamepad>();
-        _animator = GetComponent<Animator>();
-        _rigidbody = GetComponent<Rigidbody>();
+        _animator = _moa.GetComponent<Animator>();
+        _rigidbody = _moa.GetComponent<Rigidbody>();
 
-        Renderer renderer = transform.GetChild(0).gameObject.GetComponent<Renderer>();
+        Renderer renderer = _moa.transform.GetChild(0).gameObject.GetComponent<Renderer>();
         renderer.material.SetColor("_BaseColor", _gamepad.color);
-        _distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;
+        _distToGround = _moa.GetComponent<CapsuleCollider>().bounds.extents.y;
     }
 
     // Update is called once per frame
@@ -76,7 +81,7 @@ public class Player : MonoBehaviour
         /*** X axis movement ***/
         if (!_falling) {
             float dx = SPEED * _hftInput.GetAxis("Horizontal") * Time.deltaTime;
-            transform.position = transform.position + new Vector3(dx, 0.0f, 0.0f);
+            _moa.transform.position += new Vector3(dx, 0.0f, 0.0f);
 
             if (dx == 0) {
                 _animator.SetInteger("moveState", (int) MoveState.Idle);

@@ -21,7 +21,7 @@ namespace HappyFunTimes
         public class Options
         {
             public string rendezvousUrl = "http://happyfuntimes.net/api/inform2";
-            public string port = "18679";
+            public string port = "18678";
         }
 
         class SharedState {

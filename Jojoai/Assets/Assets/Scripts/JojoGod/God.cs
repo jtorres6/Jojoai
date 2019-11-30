@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class God : MonoBehaviour
 {
+
+    private GameObject _jojo;
+
     private HFTInput _hftInput;
     private HFTGamepad _gamepad;
     private Rigidbody _rb;
@@ -13,23 +16,27 @@ public class God : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _jojo = transform.Find("JojoGod").gameObject;
         _hftInput = GetComponent<HFTInput>();
         _gamepad = GetComponent<HFTGamepad>();
-        _rb = GetComponent<Rigidbody>();
+        _rb = _jojo.GetComponent<Rigidbody>();
+
+        Renderer renderer = _jojo.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Renderer>();
+        renderer.material.SetColor("_BaseColor", _gamepad.color);
     }
 
     // Update is called once per frame
     void Update()
     {
-                    Debug.DrawRay(transform.position, Vector3.down * 500f, Color.green);
+        Debug.DrawRay(_jojo.transform.position, Vector3.down * 500f, Color.green);
 
-        float dirX = Input.GetAxis("Horizontal");
+        float dirX = _hftInput.GetAxis("Horizontal");
         _rb.velocity = new Vector3(dirX * SPEED * Time.deltaTime, 0f, 0f);
 
         if (Input.GetKeyDown("space"))
         {
             RaycastHit[] hits;
-            hits = Physics.RaycastAll(transform.position, Vector3.down, 500f);
+            hits = Physics.RaycastAll(_jojo.transform.position, Vector3.down, 500f);
 
             for (int i = 0; i < hits.Length; i++)
             {
@@ -37,7 +44,7 @@ public class God : MonoBehaviour
 
                 if (obj.tag == "Player")
                 {
-                    obj.GetComponent<Player>().Dead();
+                    obj.transform.parent.GetComponent<Player>().Dead();
                 }                
             }
         }
