@@ -26,8 +26,14 @@ public class Player : MonoBehaviour
     private bool _grounded = true;
     private bool _falling = false;
 
-    private bool Grounded(){
+    private bool Grounded() {
         return Physics.Raycast(transform.position, -Vector3.up, _distToGround + 0.1f);
+    }
+
+    private bool Dead() {
+        print("Ayyyy me ha dao");
+
+        return false;
     }
 
     private IEnumerator Fall() {
@@ -49,8 +55,8 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
 
-        //Renderer renderer = GetComponent<Renderer>();
-        //renderer.material.color = _gamepad.color;
+        Renderer renderer = transform.GetChild(0).gameObject.GetComponent<Renderer>();
+        renderer.material.SetColor("_BaseColor", _gamepad.color);
         _distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;
     }
 
