@@ -32,13 +32,14 @@ public class Player : MonoBehaviour
     private bool _grounded = true;
     private bool _falling = false;
 
+    private Vector3 _spawnPosition;
+
     private bool Grounded() {
         return Physics.Raycast(_moa.transform.position, -Vector3.up, _distToGround + 0.1f);
     }
 
     public bool Dead() {
-        print("Ayyyy me ha dao");
-
+        _moa.transform.position = _spawnPosition;
         return false;
     }
 
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         _moa = transform.Find("moa").gameObject;
-
+        
         _hftInput = GetComponent<HFTInput>();
         _gamepad = GetComponent<HFTGamepad>();
         _animator = _moa.GetComponent<Animator>();
@@ -68,11 +69,13 @@ public class Player : MonoBehaviour
         renderer.material.SetColor("_EmissionColor", _gamepad.color);
 
         _distToGround = _moa.GetComponent<CapsuleCollider>().bounds.extents.y;
+        _spawnPosition = _moa.gameObject.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(gameObject.transform.position);
         /*** Jump ***/
         if (Grounded() && _hftInput.GetButtonDown("fire1")) {
             _rigidbody.AddForce(new Vector3(0, JUMP_FORCE, 0));

@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 3702478252252060167}
   - component: {fileID: 2524690153310439979}
   - component: {fileID: 4103021511373373654}
+  - component: {fileID: 4257602757281474203}
   m_Layer: 0
   m_Name: Player
   m_TagString: User
@@ -614,6 +615,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f80723239ec838458062e68dfe60b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4257602757281474203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836225925320671859}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4024d59da7daab43961c57316ed4d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 0}
+  shakeDuration: 0.5
+  shakeAmount: 0.19
+  decreaseFactor: 1
 --- !u!1001 &2190906485354749126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -634,7 +651,7 @@ PrefabInstance:
     - target: {fileID: 7233084086623170955, guid: 9c29ba424ecc88c45b79ef2fdbb10fdc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7233084086623170955, guid: 9c29ba424ecc88c45b79ef2fdbb10fdc,
         type: 3}
@@ -675,6 +692,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233084086623170958, guid: 9c29ba424ecc88c45b79ef2fdbb10fdc,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233084086623170958, guid: 9c29ba424ecc88c45b79ef2fdbb10fdc,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 7233084086623170959, guid: 9c29ba424ecc88c45b79ef2fdbb10fdc,
         type: 3}

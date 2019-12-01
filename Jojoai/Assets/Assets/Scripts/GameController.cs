@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         // Update players score:
         for (int i = 0; i < players.Length; ++i)
         {
-            players[i].transform.Find("moa").GetComponent<Player>().score += Time.deltaTime;
+            //players[i].transform.Find("moa").GetComponent<Player>().score += Time.deltaTime;
         }
     }
 }
