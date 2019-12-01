@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         return Physics.Raycast(transform.position, -Vector3.up, _distToGround + 0.1f);
     }
 
-    private bool Dead() {
+    public bool Dead() {
         print("Ayyyy me ha dao");
 
         return false;
