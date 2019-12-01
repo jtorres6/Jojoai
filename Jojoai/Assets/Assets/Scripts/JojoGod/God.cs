@@ -13,9 +13,11 @@ public class God : MonoBehaviour
 
     public float SPEED;
 
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         _jojo = transform.Find("JojoGod").gameObject;
         _hftInput = GetComponent<HFTInput>();
         _gamepad = GetComponent<HFTGamepad>();
@@ -35,6 +37,7 @@ public class God : MonoBehaviour
 
         if (_hftInput.GetButtonDown("fire1"))
         {
+            anim.SetTrigger("Trigger");
             RaycastHit[] hits;
             hits = Physics.RaycastAll(_jojo.transform.position, Vector3.down, 500f);
 
